@@ -1,0 +1,10 @@
+{
+  "name": "shipping_rates",
+  "version": "0.0.1",
+  "dependencies": {
+    "mu" : "0.5.2",
+    "xml2js" : "0.2.2",
+    "redis" : "0.8.2",
+    "qs" : "0.5.3"
+  }
+}

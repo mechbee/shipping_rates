@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<AccessRequest xml:lang='en-US'>
+  {{#config}}
+    <AccessLicenseNumber>{{access_key}}</AccessLicenseNumber>
+    <UserId>{{username}}</UserId>
+    <Password>{{password}}</Password>
+  {{/config}}
+</AccessRequest>
+<?xml version="1.0" ?>
+<RatingServiceSelectionRequest>
+  <Request>
+    <RequestAction>Rate</RequestAction>
+  </Request>
+  <PickupType>
+    <Code>03</Code>
+    <Description>Customer Counter</Description>
+  </PickupType>
+  <Shipment>
+    <RateInformation><NegotiatedRatesIndicator/></RateInformation>
+    <Shipper>
+      <ShipperNumber>{{#config}}{{shipper_number}}{{/config}}</ShipperNumber>
+      <Address>
+        <PostalCode>10011</PostalCode>
+      </Address>
+    </Shipper>
+    <ShipTo>
+      <Address>
+        {{#destination}}
+        <PostalCode>{{zip}}</PostalCode>
+        <StateProvinceCode>{{state}}</StateProvinceCode>
+        {{/destination}}
+        {{#residential}}<ResidentialAddress />{{/residential}}
+      </Address>
+    </ShipTo>
+    <ShipFrom>
+      <Address>
+        {{#origin}}
+        <PostalCode>{{zip}}</PostalCode>
+        <StateProvinceCode>{{state}}</StateProvinceCode>
+        {{/origin}}
+      </Address>
+    </ShipFrom>
+    <Service>
+      <Code>03</Code>
+    </Service>
+    <Package>
+      <PackagingType>
+        <Code>00</Code>
+        <Description>UNKNOWN</Description>
+      </PackagingType>
+      <PackageWeight>
+        <UnitOfMeasurement>
+          <Code>LBS</Code>
+        </UnitOfMeasurement>
+        <Weight>{{weight}}</Weight>
+      </PackageWeight>
+    </Package>
+  </Shipment>
+</RatingServiceSelectionRequest>
